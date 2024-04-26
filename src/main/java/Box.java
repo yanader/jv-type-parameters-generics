@@ -11,13 +11,16 @@ public class Box<T> {
         this.t = t;
     }
 
-    public <T> T castValue(String s){
+    public <T> T castValue(Class<T> clazz, String s){
         try {
-            T newT = (T)s;
-            return newT;
+            //T newT = (T)s;
+//          Double.class.cast(s);
+            return clazz.cast(s);
         } catch (ClassCastException e) {
-            throw new ClassCastException("error");
+            System.out.println("Inside catch");
+            //throw new ClassCastException("error");
         }
+        return null;
     }
 }
 
