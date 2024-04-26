@@ -1,3 +1,6 @@
+import java.util.Collections;
+import java.util.List;
+
 public class Box<T,V extends Number> implements BoxOperations<V>{
 
     private T t;
@@ -11,7 +14,7 @@ public class Box<T,V extends Number> implements BoxOperations<V>{
     public V getLargestValue() {
         return this.largestValue;
     }
-    @Override
+
     public void setLargestValue(V value1, V value2) {
         if (value1.doubleValue() > value2.doubleValue()) {
             this.largestValue = value1;
@@ -19,6 +22,16 @@ public class Box<T,V extends Number> implements BoxOperations<V>{
             this.largestValue = value2;
         }
     }
+
+//    public void setLargestNumberFromList(List<? extends V> list){
+//        //setLargestValue(Collections.max(list,null),0);
+//        largestValue = Collections.max(list.stream().toList();
+//    }
+
+    public void setLargestValueFromList(List<? extends V> numbers) {
+        this.largestValue = Collections.max(numbers, null);
+    }
+
 
     public boolean hasSameName(Box<?, ?> b) {
         if(this.name.equals(b.name)){
