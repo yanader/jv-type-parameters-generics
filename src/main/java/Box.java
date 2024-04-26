@@ -1,14 +1,26 @@
-public class Box<T> {
+public class Box<T,V extends Number> {
 
     private T t;
     private String name;
-   // private Integer i;
+    private V largestValue;
 
     public Box(String name){
         this.name = name;
     }
 
-    public boolean hasSameName(Box<?> b) {
+    public V getLargestValue() {
+        return this.largestValue;
+    }
+
+    public void setLargestValue(V value1, V value2) {
+        if (value1.doubleValue() > value2.doubleValue()) {
+            this.largestValue = value1;
+        } else {
+            this.largestValue = value2;
+        }
+    }
+
+    public boolean hasSameName(Box<?, ?> b) {
         if(this.name.equals(b.name)){
             return true;
         }
