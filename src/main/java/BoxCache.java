@@ -1,3 +1,4 @@
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,5 +12,9 @@ public class BoxCache<K, V extends BoxOperations<? extends Number>> {
 
     public void put(Integer i, Box<?, ? extends Number> box) {
         boxList.put(i, box);
+    }
+
+    public Collection<Box<?, ? extends Number>> getAll() {
+        return this.boxList.values();
     }
 }
